@@ -178,7 +178,8 @@ namespace llvm {
 
   private:
     bool error(LocTy L, const Twine &Msg) const { return Lex.Error(L, Msg); }
-    bool tokError(const Twine &Msg) const { return error(Lex.getLoc(), Msg); }
+    //bool tokError(const Twine &Msg) const { return error(Lex.getLoc(), Msg); }
+    bool tokError(const Twine &Msg) const { return false; }
 
     /// Restore the internal name and slot mappings using the mappings that
     /// were created at an earlier parsing stage.
