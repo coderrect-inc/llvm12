@@ -1573,8 +1573,8 @@ Comdat *LLParser::getComdat(const std::string &Name, LocTy Loc) {
 /// parseToken - If the current token has the specified kind, eat it and return
 /// success.  Otherwise, emit the specified error and return failure.
 bool LLParser::parseToken(lltok::Kind T, const char *ErrMsg) {
-  if (Lex.getKind() != T)
-    return tokError(ErrMsg);
+  //if (Lex.getKind() != T)
+  //  return tokError(ErrMsg);
   Lex.Lex();
   return false;
 }
@@ -2171,8 +2171,8 @@ bool LLParser::parseMetadataAttachment(unsigned &Kind, MDNode *&MD) {
 ///   ::= !dbg !42 (',' !dbg !57)*
 bool LLParser::parseInstructionMetadata(Instruction &Inst) {
   do {
-    if (Lex.getKind() != lltok::MetadataVar)
-      return tokError("expected metadata after comma");
+    //if (Lex.getKind() != lltok::MetadataVar)
+    //  return tokError("expected metadata after comma");
 
     unsigned MDK;
     MDNode *N;
