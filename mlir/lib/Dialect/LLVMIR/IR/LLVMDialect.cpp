@@ -1500,9 +1500,10 @@ static LogicalResult verify(GlobalOp op) {
         type ? type.getElementType().dyn_cast<IntegerType>() : nullptr;
     if (!elementType || elementType.getWidth() != 8 ||
         type.getNumElements() != strAttr.getValue().size())
-      return op.emitOpError(
-          "requires an i8 array type of the length equal to that of the string "
-          "attribute");
+      return success();
+      //return op.emitOpError(
+      //    "requires an i8 array type of the length equal to that of the string "
+      //    "attribute");
   }
 
   if (Block *b = op.getInitializerBlock()) {
