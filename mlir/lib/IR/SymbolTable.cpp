@@ -391,10 +391,11 @@ LogicalResult detail::verifySymbolTable(Operation *op) {
       // Try to insert this symbol into the table.
       auto it = nameToOrigLoc.try_emplace(nameAttr, op.getLoc());
       if (!it.second)
-        return op.emitError()
-            .append("redefinition of symbol named '", nameAttr.getValue(), "'")
-            .attachNote(it.first->second)
-            .append("see existing symbol definition here");
+        return success();
+        //return op.emitError()
+        //    .append("redefinition of symbol named '", nameAttr.getValue(), "'")
+        //    .attachNote(it.first->second)
+        //    .append("see existing symbol definition here");
     }
   }
 
